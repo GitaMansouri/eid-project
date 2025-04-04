@@ -6,6 +6,7 @@ import java.util.*;
 public class Database {
     private static ArrayList<Entity> entities = new ArrayList<>();
     private static int lastId = 0;
+    private static HashMap<Integer, Validator> validators;
 
     private Database(){}
 
@@ -41,6 +42,12 @@ public class Database {
             }
         }
         throw new EntityNotFoundException("Entity with id " + e.id + " not found!");
+    }
+    public static void registerValidator(int entityCode, Validator validat) {
+        if (validators.containsKey(entityCode)) {
+            throw new IllegalArgumentException("Validator with entityCode '" + entityCode + "' has existed");
+        }
+        validators.put(entityCode, validat);
     }
 
 }
