@@ -11,7 +11,7 @@ public class HumanValidator implements Validator {
         if (!(entity instanceof Human)) {
             throw new IllegalArgumentException("Input type must be Human");
         }
-       if (age < 0 || name == null) {
+       if (age < 0) {
            throw new InvalidEntityException("Age can not be negative");
        }
        if (name == null){
