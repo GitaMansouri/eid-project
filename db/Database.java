@@ -10,7 +10,7 @@ public class Database {
     private Database(){}
 
     public static void add(Entity e) {
-        e.id = lastId++;
+        e.id = ++lastId;
         entities.add(e);
     }
 
