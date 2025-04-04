@@ -1,4 +1,6 @@
 package db;
+import db.exception.EntityNotFoundException;
+
 import java.util.*;
 
 public class Database {
@@ -7,12 +9,12 @@ public class Database {
 
     private Database(){}
 
-    private static void add(Entity e) {
+    public static void add(Entity e) {
         e.id = lastId++;
         entities.add(e);
     }
 
-    private static Entity get(int id) {
+    public static Entity get(int id) throws EntityNotFoundException {
         for (Entity e : entities) {
             if (e.id == id) {
                 return e;
@@ -21,7 +23,7 @@ public class Database {
         throw new EntityNotFoundException("Entity with id " + id + " not found!");
     }
 
-    private static void delete(int id) {
+    public static void delete(int id) throws EntityNotFoundException {
         for (Entity e : entities) {
             if (e.id == id) {
                 entities.remove(e.id);
@@ -31,7 +33,7 @@ public class Database {
         throw new EntityNotFoundException("Entity with id " + id + " not found!");
     }
 
-    public static void update(Entity e) {
+    public static void update(Entity e) throws EntityNotFoundException {
         for (int i = 0 ; i < entities.size() ; i++) {
             if (entities.get(i).id == e.id) {
                 entities.set(i, e);
