@@ -15,4 +15,11 @@ public class Human extends Entity implements Cloneable {
         copyHuman.id = id;
         return copyHuman;
     }
+        public static final int HUMAN_ENTITY_CODE = 14;
+
+        @Override
+        public int getEntityCode() {
+            return HUMAN_ENTITY_CODE;
+    }
+
 }
