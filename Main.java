@@ -50,7 +50,8 @@ public class Main {
 //        } catch (EntityNotFoundException e) {
 //            System.out.println(e.getMessage());
 //        }
-
+//
+//
         Human ali = new Human("Ali");
         Human aliCopy = ali.copy();
         System.out.println("ali's name: " + ali.name);
@@ -59,5 +60,7 @@ public class Main {
         ali.name = "Ali Hosseini";
         System.out.println("ali's name: " + ali.name);
         System.out.println("aliCopy's name: " + aliCopy.name);
+
     }
+
 }
