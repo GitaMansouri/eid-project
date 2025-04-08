@@ -1,5 +1,8 @@
 package db;
 import db.exception.EntityNotFoundException;
+import db.exception.InvalidEntityException;
+import example.Human;
+import example.HumanValidator;
 
 import java.util.*;
 
@@ -10,9 +13,14 @@ public class Database {
 
     private Database(){}
 
-    public static void add(Entity e) {
+    public static void add(Entity e) throws InvalidEntityException {
         e.id = ++lastId;
         entities.add(e.copy());
+         registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
+         if (validators.containsKey(e)){
+             Validator valadator = validators.get(e);
+             valadator.validate(e);
+         }
     }
 
     public static Entity get(int id) throws EntityNotFoundException {
@@ -34,10 +42,15 @@ public class Database {
         throw new EntityNotFoundException("Entity with id " + id + " not found!");
     }
 
-    public static void update(Entity e) throws EntityNotFoundException {
+    public static void update(Entity e) throws EntityNotFoundException, InvalidEntityException {
         for (int i = 0 ; i < entities.size() ; i++) {
             if (entities.get(i).id == e.id) {
                 entities.set(i, e.copy());
+                registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
+                if (validators.containsKey(e)){
+                    Validator valadator = validators.get(e);
+                    valadator.validate(e);
+                }
                 return;
             }
         }
