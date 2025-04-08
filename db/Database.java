@@ -10,17 +10,24 @@ public class Database {
     private static ArrayList<Entity> entities = new ArrayList<>();
     private static int lastId = 0;
     private static HashMap<Integer, Validator> validators;
+    private Date creationDate = new Date();
+    private Date lastModificationDate = new Date();
 
     private Database(){}
 
     public static void add(Entity e) throws InvalidEntityException {
         e.id = ++lastId;
         entities.add(e.copy());
-         registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
-         if (validators.containsKey(e)){
-             Validator valadator = validators.get(e);
-             valadator.validate(e);
-         }
+        registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
+        if (validators.containsKey(e)) {
+            Validator valadator = validators.get(e);
+            valadator.validate(e);
+        }
+        if (e instanceof Trackable) {
+            Trackable trackable = (Trackable) e;
+            trackable.setLastModificationDate(new Date());
+            trackable.setCreationDate(new Date());
+        }
     }
 
     public static Entity get(int id) throws EntityNotFoundException {
@@ -47,9 +54,13 @@ public class Database {
             if (entities.get(i).id == e.id) {
                 entities.set(i, e.copy());
                 registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
-                if (validators.containsKey(e)){
+                if (validators.containsKey(e)) {
                     Validator valadator = validators.get(e);
                     valadator.validate(e);
+                }
+                if (e instanceof Trackable) {
+                    Trackable trackable = (Trackable) e;
+                    trackable.setLastModificationDate(new Date());
                 }
                 return;
             }
@@ -61,6 +72,27 @@ public class Database {
             throw new IllegalArgumentException("Validator with entityCode '" + entityCode + "' has existed");
         }
         validators.put(entityCode, validat);
+    }
+
+
+    public static ArrayList<Entity> getEntities() {
+        return entities;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public Date getLastModificationDate() {
+        return lastModificationDate;
+    }
+
+    public static HashMap<Integer, Validator> getValidators() {
+        return validators;
+    }
+
+    public static int getLastId() {
+        return lastId;
     }
 
 }
