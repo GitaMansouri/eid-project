@@ -9,7 +9,7 @@ import java.util.*;
 public class Database {
     private static ArrayList<Entity> entities = new ArrayList<>();
     private static int lastId = 0;
-    private static HashMap<Integer, Validator> validators;
+    private static HashMap<Integer, Validator> validators = new HashMap<>();
 
     private Database(){}
 
@@ -20,6 +20,9 @@ public class Database {
          if (validators.containsKey(e)){
              Validator valadator = validators.get(e);
              valadator.validate(e);
+         }
+         else{
+             throw new InvalidEntityException("This code is invalid.");
          }
     }
 
