@@ -9,7 +9,8 @@ import java.util.*;
 public class Database {
     private static ArrayList<Entity> entities = new ArrayList<>();
     private static int lastId = 0;
-    private static HashMap<Integer, Validator> validators;
+    private static HashMap<Integer, Validator> validators = new HashMap<>();
+    validators.put(14, validator);
     private Date creationDate = new Date();
     private Date lastModificationDate = new Date();
 
