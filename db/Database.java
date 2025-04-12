@@ -10,13 +10,12 @@ public class Database {
     private static ArrayList<Entity> entities = new ArrayList<>();
     private static int lastId = 0;
     private static HashMap<Integer, Validator> validators = new HashMap<>();
-    validators.put(14, validator);
     private Date creationDate = new Date();
     private Date lastModificationDate = new Date();
 
     private Database(){}
 
-    public static void add(Entity e) throws InvalidEntityException {
+    public static void add(Entity e) throws InvalidEntityException, EntityNotFoundException {
         e.id = ++lastId;
         entities.add(e.copy());
         registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
@@ -75,7 +74,14 @@ public class Database {
         validators.put(entityCode, validat);
     }
 
+    public static ArrayList<Entity> getAll(int entityCode) {
+        return new ArrayList<>(entities);
+    }
 
+    public static void updateEntityList(ArrayList<Entity> updatedEntites){
+        entities.clear();
+        entities = updatedEntites;
+    }
     public static ArrayList<Entity> getEntities() {
         return entities;
     }
