@@ -15,15 +15,16 @@ public class Database {
 
     public static void add(Entity e) throws InvalidEntityException {
         e.id = ++lastId;
+        validate(e);
+
+        if (e instanceof Trackable) {
+            Date cd = new Date();
+
+            ((Trackable) e).setCreationDate(cd);
+            ((Trackable) e).setLastModificationDate(cd);
+        }
+
         entities.add(e.copy());
-         registerValidator(Human.HUMAN_ENTITY_CODE, new HumanValidator());
-         if (validators.containsKey(e)){
-             Validator valadator = validators.get(e);
-             valadator.validate(e);
-         }
-         else{
-             throw new InvalidEntityException("This code is invalid.");
-         }
     }
 
     public static Entity get(int id) throws EntityNotFoundException {
@@ -64,6 +65,14 @@ public class Database {
             throw new IllegalArgumentException("Validator with entityCode '" + entityCode + "' has existed");
         }
         validators.put(entityCode, validat);
+    }
+    private static void validate(Entity e) throws InvalidEntityException {
+        if (!validators.containsKey(e.getEntityCode())){
+            return;
+        }
+
+        Validator validator = validators.get(e.getEntityCode());
+        validator.validate(e);
     }
 
 }
