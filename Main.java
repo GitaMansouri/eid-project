@@ -52,12 +52,12 @@ public class Main {
 //        }
 
         Human ali = new Human("Ali");
-        Database.add(ali);
-
+        Human aliCopy = ali.copy();
+        System.out.println("ali's name: " + ali.name);
+        System.out.println("aliCopy's name: " + aliCopy.name);
+        System.out.println();
         ali.name = "Ali Hosseini";
-
-        Human aliFromTheDatabase = (Human) Database.get(ali.id);
-
-        System.out.println("ali's name in the database: " + aliFromTheDatabase.name);
+        System.out.println("ali's name: " + ali.name);
+        System.out.println("aliCopy's name: " + aliCopy.name);
     }
 }
