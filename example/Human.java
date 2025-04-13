@@ -35,4 +35,16 @@ public class Human extends Entity {
         }
     }
 
+    @Override
+    public void validate(Entity entity) throws InvalidEntityException {
+        if (!(entity instanceof Human)) {
+            throw new IllegalArgumentException("Input type must be Human");
+        }
+        if (age < 0) {
+            throw new InvalidEntityException("Age can not be negative");
+        }
+        if (name == null){
+            throw new InvalidEntityException("Name can not be empty");
+        }
+    }
 }
