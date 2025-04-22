@@ -40,9 +40,11 @@ public class Database {
     }
 
     public static void delete(int id) throws EntityNotFoundException {
-        for (Entity e : entities) {
-            if (e.id == id) {
-                entities.remove(e.id);
+        Iterator<Entity> iterator = entities.iterator();
+        while (iterator.hasNext()) {
+            Entity entity = iterator.next();
+            if (entity.id == id) {
+                iterator.remove();
                 return;
             }
         }
@@ -75,7 +77,15 @@ public class Database {
     }
 
     public static ArrayList<Entity> getAll(int entityCode) {
-        return new ArrayList<>(entities);
+        ArrayList<Entity> result = new ArrayList<>();
+        for (Entity entity : entities) {
+            if (entity.getEntityCode() == entityCode) {
+                Entity copy = entity.copy();
+                copy.id = entity.id;
+                result.add(copy);
+            }
+        }
+        return result;
     }
 
     public static void updateEntityList(ArrayList<Entity> updatedEntites){

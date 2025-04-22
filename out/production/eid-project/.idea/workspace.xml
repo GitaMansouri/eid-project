@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f151a765-54d3-4e5b-b8ac-cd0490d3fbd8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/example/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/eid-project/db/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/eid-project/db/Database.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GitaMansouri&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GitaMansouri/eid-project.git&quot;,
+    &quot;accountId&quot;: &quot;599cbee3-7a65-41b9-b506-5ddf1ef2a3aa&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2v8qGmtCPvJSqYwiaxRcBYjMC5I" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/IdeaProjects/eid-project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f151a765-54d3-4e5b-b8ac-cd0490d3fbd8" name="Changes" comment="" />
+      <created>1743536956550</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743536956550</updated>
+    </task>
+    <servers />
+  </component>
+</project>
